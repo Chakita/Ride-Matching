@@ -15,14 +15,14 @@ services:
     depends_on:
       - rabbitMQ_server
     environment:
-      AMQP_URL: 'amqp://rabbitmq?connection_attempts=5&retry_delay=10'
+      AMQP_URL: 'amqp://rmq?connection_attempts=5&retry_delay=10'
       
   ride_matching1:
     build: 
        context: . 
        dockerfile: ./Dockerfile_ride_matching
     environment:
-      AMQP_URL: 'amqp://rabbitmq?connection_attempts=5&retry_delay=10'
+      AMQP_URL: 'amqp://rmq?connection_attempts=5&retry_delay=10'
       CONSUMER_ID: 1
       SERVER_IP: '10.0.2.15:5200'
     depends_on:
@@ -33,7 +33,7 @@ services:
        context: . 
        dockerfile: ./Dockerfile_ride_matching
     environment:
-      AMQP_URL: 'amqp://rabbitmq?connection_attempts=10&retry_delay=10'
+      AMQP_URL: 'amqp://rmq?connection_attempts=10&retry_delay=10'
       CONSUMER_ID: 2
       SERVER_IP: '10.0.2.15:5200'
     depends_on:
@@ -45,7 +45,7 @@ services:
       context: .
       dockerfile: ./Dockerfile_db
     environment:
-       AMQP_URL: 'amqp://rabbitmq?connection_attempts=10&retry_delay=10'
+       AMQP_URL: 'amqp://rmq?connection_attempts=10&retry_delay=10'
     depends_on:
       - rabbitMQ_server
       - producer

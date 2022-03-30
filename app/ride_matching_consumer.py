@@ -10,7 +10,7 @@ consumer_id = os.getenv('CONSUMER_ID',"default")
 print("ready")
 print("make request")
 send_to = "http://{}/new_ride_matching_consumer".format(server_ip)
-time.sleep(15)
+time.sleep(20)
 r= requests.post(send_to,json={"consumer_id":consumer_id})#Format string server ip to localhost:
 amqp_url = os.environ['AMQP_URL']
 print('URL: %s' % (amqp_url,))
