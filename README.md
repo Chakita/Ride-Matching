@@ -25,6 +25,6 @@ This project consists of 3 microservices - an HTTP server that accepts your requ
   c. A RabbitMQ client to create queues and send the data to consumers. The RabbitMQ client in the producer will register a single queue for all the ride-sharing consumer microservice and one for the database microservice, and will be responsible for sending out the data from the POST requests to consumers.
   
 3. There are 2 consumers - Ride mapping Consumer and the database consumer
-  a. The ride mapping consumer will sleep for the specified time (since matching logic is not implemented)
+  a. The ride mapping consumer will sleep for the specified time (since matching logic is not implemented) <br>
   b. The databse consumer will read the data from RabbitMQ and store the details into the database
   
